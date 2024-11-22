@@ -16,11 +16,11 @@ public class Main {
 //        System.out.println("Palindrome : ");
 //        System.out.println("Enter a String");
 //        String s = sc.next();
-//        System.out.println(Palindrome.checkPalindrome(s));
+//        System.out.println(Palindrome.isPalindrome(s));
 
         //CHRISTMAS TREE
         System.out.println("Christmas Tree : ");
-        ChritmasTree.printTree(17);
+        ChristmasTree.printTree(17);
     }
 }
 

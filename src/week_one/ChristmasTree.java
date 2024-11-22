@@ -1,6 +1,6 @@
 package src.week_one;
 
-public class ChritmasTree {
+public class ChristmasTree {
 
     public static void printTree(int n) {
         int space = n / 2;
@@ -9,6 +9,7 @@ public class ChritmasTree {
                 System.out.print(" ");
             }
             for (int j = 0; j < i; j++) {
+
                 System.out.print("*");
             }
             space--;
