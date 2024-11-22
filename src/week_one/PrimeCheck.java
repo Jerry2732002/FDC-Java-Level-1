@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PrimeCheck {
 
     static boolean isPrime(int n) {
-        if (n == 1) {
+        if (n == 1 || n == 4) {
             return false;
         }
         for (int i = 2; i < n / 2; i++) {
@@ -24,9 +24,9 @@ public class PrimeCheck {
 
         if (isPrime(number)) {
             System.out.println(number + " is a Prime");
-        }
-        else {
+        } else {
             System.out.println(number + " is NOT a Prime");
         }
+        sc.close();
     }
 }

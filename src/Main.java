@@ -21,6 +21,9 @@ public class Main {
 
         //PRIME CHECK
 //        PrimeCheck.checkPrime();
+
+        //COUNT PRIME
+        PrimeCount.primeCount();
     }
 }
 
