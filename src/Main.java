@@ -23,7 +23,10 @@ public class Main {
 //        PrimeCheck.checkPrime();
 
         //COUNT PRIME
-        PrimeCount.primeCount();
+//        PrimeCount.primeCount();
+
+        //LARGEST
+        LargestNumber.largestNumber();
     }
 }
 
