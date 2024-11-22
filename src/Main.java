@@ -14,10 +14,13 @@ public class Main {
 //        Palindrome.isPalindrome();
 
         //CHRISTMAS TREE
-//        ChristmasTree.printTree(17);
+//        ChristmasTree.printTree(7);
 
         //REVERSE INTEGER
-        ReverseInteger.reverseDigit(123456);
+//        ReverseInteger.reverseDigit(123);
+
+        //PRIME CHECK
+//        PrimeCheck.checkPrime();
     }
 }
 

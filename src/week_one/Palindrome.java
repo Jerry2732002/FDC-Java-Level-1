@@ -12,7 +12,12 @@ public class Palindrome {
 
         StringBuilder sb = new StringBuilder(s);
 
-        System.out.println(s.equalsIgnoreCase(sb.reverse().toString()));
+        if(s.equalsIgnoreCase(sb.reverse().toString())) {
+            System.out.println("The given string is a palindrome");
+        }
+        else {
+            System.out.println("The given string is NOT a palindrome");
+        }
         sc.close();
     }
 }
