@@ -9,14 +9,18 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         //SUM OF SQUARES
-        System.out.println("Sum of Squares : ");
-        System.out.println(SumOfSquares.sumOfSquare());
+//        System.out.println("Sum of Squares : ");
+//        System.out.println(SumOfSquares.sumOfSquare());
 
         //PALINDROME
-        System.out.println("Palindrome : ");
-        System.out.println("Enter a String");
-        String s = sc.next();
-        System.out.println(Palindrome.checkPalindrome(s));
+//        System.out.println("Palindrome : ");
+//        System.out.println("Enter a String");
+//        String s = sc.next();
+//        System.out.println(Palindrome.checkPalindrome(s));
+
+        //CHRISTMAS TREE
+        System.out.println("Christmas Tree : ");
+        ChritmasTree.printTree(17);
     }
 }
 
