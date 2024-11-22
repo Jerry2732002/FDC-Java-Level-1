@@ -14,7 +14,7 @@ public class Main {
 //        Palindrome.isPalindrome();
 
         //CHRISTMAS TREE
-//        ChristmasTree.printTree(7);
+        ChristmasTree.printTree(19);
 
         //REVERSE INTEGER
 //        ReverseInteger.reverseDigit(123);
@@ -26,7 +26,7 @@ public class Main {
 //        PrimeCount.primeCount();
 
         //LARGEST
-        LargestNumber.largestNumber();
+//        LargestNumber.largestNumber();
     }
 }
 
