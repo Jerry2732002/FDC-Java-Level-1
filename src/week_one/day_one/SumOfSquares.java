@@ -1,4 +1,4 @@
-package src.week_one;
+package src.week_one.day_one;
 
 public class SumOfSquares {
     private static int sum = 0;

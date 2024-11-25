@@ -1,6 +1,6 @@
 package src;
 
-import src.week_one.*;
+import src.week_one.day_one.ChristmasTree;
 
 
 public class Main {
@@ -14,7 +14,7 @@ public class Main {
 //        Palindrome.isPalindrome();
 
         //CHRISTMAS TREE
-        ChristmasTree.printTree(19);
+        ChristmasTree.printTree(20);
 
         //REVERSE INTEGER
 //        ReverseInteger.reverseDigit(123);
