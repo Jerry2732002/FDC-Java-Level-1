@@ -9,10 +9,13 @@ public class Palindrome {
         System.out.println("Palindrome : ");
         System.out.println("Enter a String");
         String s = sc.next();
+        StringBuilder rev = new StringBuilder();
 
-        StringBuilder sb = new StringBuilder(s);
+        for(char ch : s.toCharArray()) {
+            rev.insert(0, ch);
+        }
 
-        if(s.equalsIgnoreCase(sb.reverse().toString())) {
+        if(s.equalsIgnoreCase(rev.toString())) {
             System.out.println("The given string is a palindrome");
         }
         else {

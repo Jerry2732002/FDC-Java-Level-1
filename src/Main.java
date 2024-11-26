@@ -1,5 +1,6 @@
 package src;
 
+import src.week_one.day_one.Palindrome;
 import src.week_one.day_two.OOPs01;
 import src.week_one.day_two.oops_02.FuelType;
 import src.week_one.day_two.oops_02.Type;
@@ -21,6 +22,7 @@ public class Main {
         vehicle2.printDetails();
 
         vehicle3.printDetails();
+
 
     }
 }

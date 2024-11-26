@@ -10,8 +10,8 @@ public enum Planets {
     URANUS(8.68e25, 25362.0),
     NEPTUNE(1.02e26, 24622.0);
 
-    private double mass;
-    private double radius;
+    private final double mass;
+    private final double radius;
 
     public double getMass() {
         return mass;
