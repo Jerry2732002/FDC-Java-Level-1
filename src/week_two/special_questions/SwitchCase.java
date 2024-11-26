@@ -47,6 +47,7 @@ public class SwitchCase {
         System.out.println("Enter a week day");
 
         String weekday = sc.next().toUpperCase();
+        sc.close();
 
         try {
             getNextDay(WeekDays.valueOf(weekday));
