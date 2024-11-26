@@ -4,10 +4,27 @@ import java.util.Scanner;
 
 public class SimpleCalculator {
 
-    private static double calculate(double result, String[] operandOrOperators) {
+    private static double twoVariableCalculate(double result, String[] operandOrOperators) {
 
         for (int i = 1; i < operandOrOperators.length; i = i + 2) {
-            System.out.println("reult before switch :" + result);
+            switch (operandOrOperators[i]) {
+                case "+":
+                    return result + Double.parseDouble(operandOrOperators[i + 1]);
+                case "-":
+                    return result - Double.parseDouble(operandOrOperators[i + 1]);
+                case "*":
+                    return result * Double.parseDouble(operandOrOperators[i + 1]);
+                case "/":
+                    return result / Double.parseDouble(operandOrOperators[i + 1]);
+            }
+
+        }
+        return result;
+    }
+
+    private static double oneVariableCalculate(double result, String[] operandOrOperators) {
+
+        for (int i = 0; i < operandOrOperators.length; i = i + 2) {
             switch (operandOrOperators[i]) {
                 case "+":
                     return result + Double.parseDouble(operandOrOperators[i + 1]);
@@ -34,16 +51,14 @@ public class SimpleCalculator {
             command = sc.nextLine();
 
             String[] operandOrOperators = command.split("\\s");
-            //Checks if the first character(s) is a digit or operator
+            //Checks if the first character is a digit or operator
             if (Character.isDigit(operandOrOperators[0].charAt(0))) {
                 result = result + Double.parseDouble(operandOrOperators[0]);
-                System.out.println("result at if : " + result);
+                result = twoVariableCalculate(result, operandOrOperators);
+            }else {
+                result = oneVariableCalculate(result,operandOrOperators);
             }
-            System.out.println("result at else : " + result);
-            result = calculate(result, operandOrOperators);
-
             System.out.println("Result : " + result);
-
         } while (!command.equalsIgnoreCase("exit"));
     }
 }
