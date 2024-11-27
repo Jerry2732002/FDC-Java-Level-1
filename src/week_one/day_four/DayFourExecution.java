@@ -4,6 +4,7 @@ import src.week_one.day_four.question01.Bike;
 import src.week_one.day_four.question01.Car;
 import src.week_one.day_four.question01.Truck;
 import src.week_one.day_four.question01.VehicleOperations;
+import src.week_one.day_four.question02.*;
 
 public class DayFourExecution {
 
@@ -27,5 +28,17 @@ public class DayFourExecution {
         VehicleOperations.printVehicleDetails(bike);
         VehicleOperations.printVehicleDetails(car);
         VehicleOperations.printVehicleDetails(truck);
+    }
+
+    public static void executeQuestion02(){
+        Playable audioFile = new AudioFile("Gangeee",4,"Yeshudas");
+        Playable videoFile = new VideoFile("Interstellar","Christopher Nolan","1080p");
+        Playable podCast =new Podcast("Podcast01","Navin Reddy","Why Java is good");
+
+        MediaPlayer player = new MediaPlayer();
+        player.addToQueue(audioFile);
+        player.addToQueue(videoFile);
+        player.addToQueue(podCast);
+        player.playAll();
     }
 }
