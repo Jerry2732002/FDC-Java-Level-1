@@ -9,13 +9,13 @@ public class SimpleCalculator {
         for (int i = 1; i < operandOrOperators.length; i = i + 2) {
             switch (operandOrOperators[i]) {
                 case "+":
-                    return result + Double.parseDouble(operandOrOperators[i + 1]);
+                    result += Double.parseDouble(operandOrOperators[i + 1]); break;
                 case "-":
-                    return result - Double.parseDouble(operandOrOperators[i + 1]);
+                    result -= Double.parseDouble(operandOrOperators[i + 1]); break;
                 case "*":
-                    return result * Double.parseDouble(operandOrOperators[i + 1]);
+                    result *= Double.parseDouble(operandOrOperators[i + 1]); break;
                 case "/":
-                    return result / Double.parseDouble(operandOrOperators[i + 1]);
+                    result /= Double.parseDouble(operandOrOperators[i + 1]); break;
             }
 
         }
@@ -27,13 +27,13 @@ public class SimpleCalculator {
         for (int i = 0; i < operandOrOperators.length; i = i + 2) {
             switch (operandOrOperators[i]) {
                 case "+":
-                    return result + Double.parseDouble(operandOrOperators[i + 1]);
+                    result += Double.parseDouble(operandOrOperators[i + 1]); break;
                 case "-":
-                    return result - Double.parseDouble(operandOrOperators[i + 1]);
+                    result -= Double.parseDouble(operandOrOperators[i + 1]); break;
                 case "*":
-                    return result * Double.parseDouble(operandOrOperators[i + 1]);
+                    result *= Double.parseDouble(operandOrOperators[i + 1]); break;
                 case "/":
-                    return result / Double.parseDouble(operandOrOperators[i + 1]);
+                    result /= Double.parseDouble(operandOrOperators[i + 1]); break;
             }
 
         }
