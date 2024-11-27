@@ -1,0 +1,8 @@
+2 types of account :
+    1. Checking Account
+    2. Saving Account
+
+3 Types of payment Method
+    1. GPay : Supported by both Types of Account, No Transactional Charges
+    2. Credit Card : Supported by only Checking Account, Charges Rs. 5 for each transaction
+    3. Debit Card : Supported by both Types of Account, Charges Rs. 2 for each transaction
