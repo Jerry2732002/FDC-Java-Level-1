@@ -7,10 +7,6 @@ public class Bike extends Vehicle{
         return tax;
     }
 
-    public double getDailyRent() {
-        return this.dailyRent;
-    }
-
     public Bike(double tax, double dailyRent, String modal) {
         this.tax = tax;
         this.dailyRent = dailyRent;

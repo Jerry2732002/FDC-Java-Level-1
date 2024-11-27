@@ -17,6 +17,8 @@ public class VehicleOperations {
         double rent = truck.dailyRent + ((truck.dailyRent * truck.getTax()) / 100);
         System.out.println("Rent of Bike = " + rent);
     }
+
+
     public static void overrideRentCalculation(Vehicle vehicle) {
         vehicle.calculateVehicleRent();
     }
