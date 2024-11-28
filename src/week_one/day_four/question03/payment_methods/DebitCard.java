@@ -1,8 +1,6 @@
 package src.week_one.day_four.question03.payment_methods;
 
-import src.week_one.day_four.question03.AccountType;
-import src.week_one.day_four.question03.BankAccount;
-import src.week_one.day_four.question03.PaymentMethod;
+import src.week_one.day_four.question03.bank_accounts.BankAccount;
 
 //Has transactional charge of Rs.2
 public class DebitCard implements PaymentMethod {

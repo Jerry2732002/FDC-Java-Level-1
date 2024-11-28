@@ -5,13 +5,10 @@ import src.week_one.day_four.question01.Car;
 import src.week_one.day_four.question01.Truck;
 import src.week_one.day_four.question01.VehicleOperations;
 import src.week_one.day_four.question02.*;
-import src.week_one.day_four.question03.BankAccount;
-import src.week_one.day_four.question03.PaymentMethod;
+import src.week_one.day_four.question03.bank_accounts.BankAccount;
+import src.week_one.day_four.question03.payment_methods.*;
 import src.week_one.day_four.question03.bank_accounts.CheckingAccount;
 import src.week_one.day_four.question03.bank_accounts.SavingAccount;
-import src.week_one.day_four.question03.payment_methods.CreditCard;
-import src.week_one.day_four.question03.payment_methods.DebitCard;
-import src.week_one.day_four.question03.payment_methods.GooglePay;
 
 import java.util.Scanner;
 
@@ -61,24 +58,13 @@ public class DayFourExecution {
         String command;
         BankAccount account1 = new SavingAccount(1001, 55_000);
         BankAccount account2 = new CheckingAccount(1002, 75_000);
-
-        PaymentMethod gpay = new GooglePay();
+        PaymentMethod googlePay = new GooglePay();
         PaymentMethod credit = new CreditCard();
         PaymentMethod debit = new DebitCard();
 
-        System.out.println("Account 1 to Account 2 via GPay");
-        gpay.makePayment(account1,account2,1000);
-        account1.printDetails();
-        account2.printDetails();
-
-        System.out.println("\n\nAccount 1 to Account 2 via Credit Card");
-        credit.makePayment(account1,account2,1000);
-        account1.printDetails();
-        account2.printDetails();
-
-        System.out.println("\n\nAccount 2 to Account 1 via Credit Card");
-        credit.makePayment(account2,account1,1000);
-        account1.printDetails();
-        account2.printDetails();
+        TransferFund.transferFund(googlePay,account1,account2,1000);
+        TransferFund.transferFund(credit,account1,account2,1000);
+        TransferFund.transferFund(credit,account2,account1,1000);
+        TransferFund.transferFund(debit,account1,account2,2000);
     }
 }

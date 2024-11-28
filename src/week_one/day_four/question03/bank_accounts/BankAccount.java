@@ -1,4 +1,6 @@
-package src.week_one.day_four.question03;
+package src.week_one.day_four.question03.bank_accounts;
+
+import src.week_one.day_four.question03.payment_methods.AccountType;
 
 public abstract class BankAccount {
     protected long accountNo;

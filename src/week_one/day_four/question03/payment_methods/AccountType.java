@@ -1,4 +1,4 @@
-package src.week_one.day_four.question03;
+package src.week_one.day_four.question03.payment_methods;
 
 public enum AccountType{
     SAVINGS_ACCOUNT(0.5),

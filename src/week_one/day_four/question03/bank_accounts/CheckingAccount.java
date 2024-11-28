@@ -1,7 +1,6 @@
 package src.week_one.day_four.question03.bank_accounts;
 
-import src.week_one.day_four.question03.AccountType;
-import src.week_one.day_four.question03.BankAccount;
+import src.week_one.day_four.question03.payment_methods.AccountType;
 
 public class CheckingAccount extends BankAccount {
 
