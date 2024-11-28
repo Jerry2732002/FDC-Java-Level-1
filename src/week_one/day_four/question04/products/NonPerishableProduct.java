@@ -17,4 +17,9 @@ public class NonPerishableProduct implements Product {
     public double calculatePrice() {
         return 0;
     }
+
+    @Override
+    public String getName() {
+        return this.productName;
+    }
 }

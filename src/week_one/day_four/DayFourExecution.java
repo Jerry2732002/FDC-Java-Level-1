@@ -54,17 +54,23 @@ public class DayFourExecution {
 
 
     public static void executeQuestion03() {
-        Scanner sc = new Scanner(System.in);
-        String command;
-        BankAccount account1 = new SavingAccount(1001, 55_000);
-        BankAccount account2 = new CheckingAccount(1002, 75_000);
+
+        BankAccount account1 = new SavingAccount(1001, 0);
+        BankAccount account2 = new CheckingAccount(1002, 0);
         PaymentMethod googlePay = new GooglePay();
         PaymentMethod credit = new CreditCard();
         PaymentMethod debit = new DebitCard();
 
-        TransferFund.transferFund(googlePay,account1,account2,1000);
-        TransferFund.transferFund(credit,account1,account2,1000);
-        TransferFund.transferFund(credit,account2,account1,1000);
-        TransferFund.transferFund(debit,account1,account2,2000);
+        account1.deposit(10_000);
+
+        account2.deposit(20_000);
+
+        BankAccount.transferFund(googlePay,account1,account2,1000);
+        System.out.println("\n\n");
+        BankAccount.transferFund(credit,account1,account2,1000);
+        System.out.println("\n\n");
+        BankAccount.transferFund(credit,account2,account1,1000);
+        System.out.println("\n\n");
+        BankAccount.transferFund(debit,account1,account2,2000);
     }
 }
