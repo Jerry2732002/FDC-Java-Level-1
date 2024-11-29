@@ -9,8 +9,15 @@ import src.week_one.day_four.question03.bank_accounts.BankAccount;
 import src.week_one.day_four.question03.payment_methods.*;
 import src.week_one.day_four.question03.bank_accounts.CheckingAccount;
 import src.week_one.day_four.question03.bank_accounts.SavingAccount;
+import src.week_one.day_four.question04.Discountable;
+import src.week_one.day_four.question04.Inventory;
+import src.week_one.day_four.question04.products.NonPerishableProduct;
+import src.week_one.day_four.question04.products.PerishableProduct;
+import src.week_one.day_four.question04.products.Product;
 
-import java.util.Scanner;
+import java.text.ParseException;
+import java.util.Arrays;
+
 
 public class DayFourExecution {
 
@@ -72,5 +79,26 @@ public class DayFourExecution {
         BankAccount.transferFund(credit,account2,account1,1000);
         System.out.println("\n\n");
         BankAccount.transferFund(debit,account1,account2,2000);
+    }
+
+    public static void executeQuestion04() throws ParseException {
+        Inventory inventory = new Inventory();
+        Product doll = new NonPerishableProduct("Doll",150,15);
+        Product shoes = new NonPerishableProduct("Shoes", 1200, 40);
+        Product bread = new PerishableProduct("Bread" , "04-12-2024",40,200);
+        Product cake = new PerishableProduct("Cake" , "04-11-2024",40,200);
+
+        inventory.addToInventory(Arrays.asList(doll,shoes,bread,cake));
+        inventory.printDetailsOfAllProducts();
+
+        Discountable.applyDiscount(doll);
+        Discountable.applyDiscount(shoes);
+        Discountable.applyDiscount(bread);
+        Discountable.applyDiscount(cake);
+
+        Inventory.removeFromInventory(cake.getName());
+
+
+
     }
 }
