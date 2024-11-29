@@ -14,6 +14,10 @@ import src.week_one.day_four.question04.Inventory;
 import src.week_one.day_four.question04.products.NonPerishableProduct;
 import src.week_one.day_four.question04.products.PerishableProduct;
 import src.week_one.day_four.question04.products.Product;
+import src.week_one.day_four.question05.FuelType;
+import src.week_one.day_four.question05.Vehicle;
+import src.week_one.day_four.question05.VehicleInfo;
+import src.week_one.day_four.question05.vehicles.*;
 
 import java.text.ParseException;
 import java.util.Arrays;
@@ -72,23 +76,23 @@ public class DayFourExecution {
 
         account2.deposit(20_000);
 
-        BankAccount.transferFund(googlePay,account1,account2,1000);
+        BankAccount.transferFund(googlePay, account1, account2, 1000);
         System.out.println("\n\n");
-        BankAccount.transferFund(credit,account1,account2,1000);
+        BankAccount.transferFund(credit, account1, account2, 1000);
         System.out.println("\n\n");
-        BankAccount.transferFund(credit,account2,account1,1000);
+        BankAccount.transferFund(credit, account2, account1, 1000);
         System.out.println("\n\n");
-        BankAccount.transferFund(debit,account1,account2,2000);
+        BankAccount.transferFund(debit, account1, account2, 2000);
     }
 
     public static void executeQuestion04() throws ParseException {
         Inventory inventory = new Inventory();
-        Product doll = new NonPerishableProduct("Doll",150,15);
+        Product doll = new NonPerishableProduct("Doll", 150, 15);
         Product shoes = new NonPerishableProduct("Shoes", 1200, 40);
-        Product bread = new PerishableProduct("Bread" , "04-12-2024",40,200);
-        Product cake = new PerishableProduct("Cake" , "04-11-2024",40,200);
+        Product bread = new PerishableProduct("Bread", "04-12-2024", 40, 200);
+        Product cake = new PerishableProduct("Cake", "04-11-2024", 40, 200);
 
-        inventory.addToInventory(Arrays.asList(doll,shoes,bread,cake));
+        inventory.addToInventory(Arrays.asList(doll, shoes, bread, cake));
         inventory.printDetailsOfAllProducts();
 
         Discountable.applyDiscount(doll);
@@ -98,7 +102,24 @@ public class DayFourExecution {
 
         Inventory.removeFromInventory(cake.getName());
 
+    }
 
+    public static void executeQuestion05() {
+        Vehicle car = new Carr(FuelType.PETROL, 10, 40, 20);
+        Vehicle bike = new Bikee(20, 20, 10);
+        Vehicle boat = new Boat(FuelType.DIESEL, 5, 50, 20, (byte) 30);
+        Vehicle bus = new Bus(FuelType.DIESEL, 10, 100, 40, (byte) 32);
+        Vehicle areoplane = new Areoplane(50,1000,1000,(byte)50);
 
+        System.out.println("*****************************");
+        VehicleInfo.vehicleInfo(car);
+        System.out.println("*****************************");
+        VehicleInfo.vehicleInfo(bike);
+        System.out.println("*****************************");
+        VehicleInfo.vehicleInfo(boat);
+        System.out.println("*****************************");
+        VehicleInfo.vehicleInfo(bus);
+        System.out.println("*****************************");
+        VehicleInfo.vehicleInfo(areoplane);
     }
 }

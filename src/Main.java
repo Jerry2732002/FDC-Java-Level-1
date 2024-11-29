@@ -9,7 +9,7 @@ import java.text.ParseException;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
-        DayFourExecution.executeQuestion04();
+        DayFourExecution.executeQuestion05();
     }
 }
 
