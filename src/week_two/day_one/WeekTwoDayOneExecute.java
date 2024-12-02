@@ -94,11 +94,11 @@ public class WeekTwoDayOneExecute {
     //Question 1
     public static void executeQuestion06() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter 2 numbers  to divide :");
-        int numOne = sc.nextInt();
-        int numTwo = sc.nextInt();
-        BasicExceptions obj = new BasicExceptions();
-        try {
+        try (sc) {
+            System.out.println("Enter 2 numbers  to divide :");
+            int numOne = sc.nextInt();
+            int numTwo = sc.nextInt();
+            BasicExceptions obj = new BasicExceptions();
             System.out.println("Result :");
             System.out.println(obj.divide(numOne, numTwo));
         } catch (ArithmeticException e) {
@@ -117,7 +117,7 @@ public class WeekTwoDayOneExecute {
             int numOne = sc.nextInt();
             int numTwo = sc.nextInt();
 
-            try {
+            try (sc) {
                 System.out.println("Result :");
                 System.out.println(obj.divide(numOne, numTwo));
             } catch (ArithmeticException e) {
@@ -134,7 +134,7 @@ public class WeekTwoDayOneExecute {
     public static void executeQuestion08() {
         Scanner sc = new Scanner(System.in);
         BasicExceptions obj = new BasicExceptions();
-        try {
+        try (sc) {
             System.out.println("Enter 2 numbers  to divide :");
             int numOne = sc.nextInt();
             int numTwo = sc.nextInt();
@@ -151,22 +151,15 @@ public class WeekTwoDayOneExecute {
 
     //Question 4
     public static void executeQuestion09() {
-        FileWriter writer = null;
-        try {
-            try {
-                writer = new FileWriter("sample.txt");
-                writer.write("Hello From Source Code");
-                System.out.println("Successfully written content to file");
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            } finally {
-                System.out.println("Program Executed");
-                assert writer != null;
-                writer.close();
-            }
+        try (FileWriter writer = new FileWriter("sample.txt");) {
+            writer.write("Hello From Source Code");
+            System.out.println("Successfully written content to file");
         } catch (IOException e) {
-            System.out.println("Some issue");
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Program Executed");
         }
     }
 }
+
 
