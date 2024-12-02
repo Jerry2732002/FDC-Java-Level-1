@@ -6,6 +6,7 @@ import src.week_one.day_three.DayThreeExecutions;
 import src.week_two.day_one.WeekTwoDayOneExecute;
 
 import java.text.ParseException;
+import java.util.Arrays;
 
 
 public class Main {

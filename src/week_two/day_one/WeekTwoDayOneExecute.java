@@ -112,6 +112,7 @@ public class WeekTwoDayOneExecute {
     public static void executeQuestion07() {
         Scanner sc = new Scanner(System.in);
         BasicExceptions obj = new BasicExceptions();
+
         try {
             System.out.println("Enter 2 numbers  to divide :");
             int numOne = sc.nextInt();
@@ -151,13 +152,19 @@ public class WeekTwoDayOneExecute {
 
     //Question 4
     public static void executeQuestion09() {
-        try (FileWriter writer = new FileWriter("sample.txt");) {
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter("sample.txt");
             writer.write("Hello From Source Code");
             System.out.println("Successfully written content to file");
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Program Executed");
+            try {
+                writer.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
