@@ -65,29 +65,20 @@ public class WeekTwoDayOneExecute {
     }
 
     //Question 5
-    public static <T> void swapArrayValues(T[] arrayOne, T[] arrayTwo) {
+    public static <T> void swapArrayValues(T[] arrayOne, int index1, int index2) {
         T temp;
         System.out.println("Before Swap :");
-        System.out.println("Array 1 : " + Arrays.asList(arrayOne));
-        System.out.println("Array 2 : " + Arrays.asList(arrayTwo));
-        if (arrayOne.length == arrayTwo.length) {
-            for (int i = 0; i < arrayOne.length; i++) {
-                temp = arrayOne[i];
-                arrayOne[i] = arrayTwo[i];
-                arrayTwo[i] = temp;
-            }
-            System.out.println("After Swap :");
-            System.out.println("Array 1 : " + Arrays.asList(arrayOne));
-            System.out.println("Array 2 : " + Arrays.asList(arrayTwo));
-        } else {
-            System.out.println("Varying Length Can't combine");
-        }
+        System.out.println("Array : " + Arrays.asList(arrayOne));
+        temp = arrayOne[index1];
+        arrayOne[index1] = arrayOne[index2];
+        arrayOne[index2] = arrayOne[index1];
+        System.out.println("After Swap :");
+        System.out.println("Array : " + Arrays.asList(arrayOne));
     }
 
     public static void executeQuestion05() {
         Integer[] arrayOne = {1, 2, 3, 4, 5};
-        Integer[] arrayTwo = {6, 7, 8, 9, 10};
-        swapArrayValues(arrayOne, arrayTwo);
+        swapArrayValues(arrayOne, 1,4);
     }
 
     /// //////////////////EXCEPTION////////////////////////
