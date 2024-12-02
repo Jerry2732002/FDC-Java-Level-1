@@ -148,23 +148,25 @@ public class WeekTwoDayOneExecute {
             System.out.println("Execution finished");
         }
     }
-    //Question 4
-    public static void executeQuestion09(){
-        try {
-            File file = new File("sample.txt");
-//            File file = new File("src/week_two/day_one/exceptions/sample.txt");
-            FileWriter writer = new FileWriter(file);
-            writer.write("Hello From Source Code");
-            System.out.println("Successfully written content to file");
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found");
-        }
-        catch (IOException e) {
-            System.out.println(e.getMessage());
-        }finally {
-            System.out.println("Program Executed");
-        }
 
+    //Question 4
+    public static void executeQuestion09() {
+        FileWriter writer = null;
+        try {
+            try {
+                writer = new FileWriter("sample.txt");
+                writer.write("Hello From Source Code");
+                System.out.println("Successfully written content to file");
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                System.out.println("Program Executed");
+                assert writer != null;
+                writer.close();
+            }
+        } catch (IOException e) {
+            System.out.println("Some issue");
+        }
     }
 }
 
