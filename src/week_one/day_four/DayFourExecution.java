@@ -14,7 +14,7 @@ import src.week_one.day_four.question04.Inventory;
 import src.week_one.day_four.question04.products.NonPerishableProduct;
 import src.week_one.day_four.question04.products.PerishableProduct;
 import src.week_one.day_four.question04.products.Product;
-import src.week_one.day_four.question05.FuelType;
+import src.week_one.day_four.question05.enums.FuelType;
 import src.week_one.day_four.question05.Vehicle;
 import src.week_one.day_four.question05.VehicleInfo;
 import src.week_one.day_four.question05.vehicles.*;
@@ -87,10 +87,11 @@ public class DayFourExecution {
 
     public static void executeQuestion04() throws ParseException {
         Inventory inventory = new Inventory();
-        Product doll = new NonPerishableProduct("Doll", 150, 15);
-        Product shoes = new NonPerishableProduct("Shoes", 1200, 40);
-        Product bread = new PerishableProduct("Bread", "04-12-2024", 40, 200);
-        Product cake = new PerishableProduct("Cake", "04-11-2024", 40, 200);
+
+        NonPerishableProduct doll = new NonPerishableProduct("Doll", 150, 15);
+        NonPerishableProduct shoes = new NonPerishableProduct("Shoes", 1200, 40);
+        PerishableProduct bread = new PerishableProduct("Bread", "04-12-2024", 40, 200);
+        PerishableProduct cake = new PerishableProduct("Cake", "04-11-2024", 40, 200);
 
         inventory.addToInventory(Arrays.asList(doll, shoes, bread, cake));
         inventory.printDetailsOfAllProducts();

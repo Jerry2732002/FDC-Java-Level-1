@@ -1,4 +1,4 @@
-package src.week_one.day_four.question05;
+package src.week_one.day_four.question05.enums;
 
 public enum FuelType {
     PETROL,

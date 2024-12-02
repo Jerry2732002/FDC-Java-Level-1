@@ -1,5 +1,8 @@
 package src.week_one.day_four.question05;
 
+import src.week_one.day_four.question05.enums.FuelType;
+import src.week_one.day_four.question05.enums.VehicleType;
+
 abstract public class Vehicle {
     protected VehicleType vehicleType;
     protected FuelType fuelType;

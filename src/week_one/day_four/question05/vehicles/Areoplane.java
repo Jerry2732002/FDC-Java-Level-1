@@ -1,9 +1,9 @@
 package src.week_one.day_four.question05.vehicles;
 
-import src.week_one.day_four.question05.Aircraft;
-import src.week_one.day_four.question05.FuelType;
+import src.week_one.day_four.question05.interfaces.Aircraft;
+import src.week_one.day_four.question05.enums.FuelType;
 import src.week_one.day_four.question05.Vehicle;
-import src.week_one.day_four.question05.VehicleType;
+import src.week_one.day_four.question05.enums.VehicleType;
 
 public class Areoplane extends Vehicle implements Aircraft {
     private byte noOfSeats;

@@ -1,9 +1,9 @@
 package src.week_one.day_four.question05.vehicles;
 
-import src.week_one.day_four.question05.FuelType;
-import src.week_one.day_four.question05.Seacraft;
+import src.week_one.day_four.question05.enums.FuelType;
+import src.week_one.day_four.question05.interfaces.Seacraft;
 import src.week_one.day_four.question05.Vehicle;
-import src.week_one.day_four.question05.VehicleType;
+import src.week_one.day_four.question05.enums.VehicleType;
 
 public class Boat extends Vehicle implements Seacraft {
     private byte noOfSeats;
