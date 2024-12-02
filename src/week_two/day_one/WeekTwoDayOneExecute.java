@@ -14,7 +14,7 @@ public class WeekTwoDayOneExecute {
     //Question 1
     public static void executeQuestion01() {
         Box<String> stringBox = new Box<>("Initial String");
-        stringBox.DisplayType();
+        stringBox.displayType();
         stringBox.setObject("New Value");
         System.out.println("Using getter : " + stringBox.getObject());
     }
@@ -38,10 +38,7 @@ public class WeekTwoDayOneExecute {
 
     //Question 3
     static <T extends Number> boolean compare(T value1, T value2) {
-        if (value1.equals(value2)) {
-            return true;
-        }
-        return false;
+        return value1.equals(value2);
     }
 
     public static void executeQuestion03() {
@@ -65,7 +62,7 @@ public class WeekTwoDayOneExecute {
     }
 
     //Question 5
-    public static <T> void swapArrayValues(T[] arrayOne, int index1, int index2) {
+    public static <T> void swap(T[] arrayOne, int index1, int index2) {
         T temp;
         System.out.println("Before Swap :");
         System.out.println("Array : " + Arrays.asList(arrayOne));
@@ -78,7 +75,7 @@ public class WeekTwoDayOneExecute {
 
     public static void executeQuestion05() {
         Integer[] arrayOne = {1, 2, 3, 4, 5};
-        swapArrayValues(arrayOne, 1,4);
+        swap(arrayOne, 1,4);
     }
 
     /// //////////////////EXCEPTION////////////////////////
@@ -152,6 +149,7 @@ public class WeekTwoDayOneExecute {
             System.out.println(e.getMessage());
         } finally {
             try {
+                assert writer != null;
                 writer.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);

@@ -14,7 +14,7 @@ public class Box <T>{
         this.obj = obj;
     }
 
-    public void DisplayType() {
+    public void displayType() {
         System.out.println("Type of object : " + this.obj.getClass());
     }
 
