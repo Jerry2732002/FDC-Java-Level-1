@@ -29,7 +29,7 @@ public class WeekTwoDayTwoExecutable {
                     result = divisionArray.divide(numOne, numTwo);
                 } catch (ArithmeticException ae) {
                     System.out.println("Invalid input 2nd input cant be zero");
-                    continue;
+                    break;
                 }
                 try {
                     divisionArray.addToArray(result);
