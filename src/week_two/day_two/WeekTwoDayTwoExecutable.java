@@ -24,27 +24,26 @@ public class WeekTwoDayTwoExecutable {
             System.out.println("Enter 2 numbers");
             numOne = sc.nextInt();
             numTwo = sc.nextInt();
+
             try {
-                try {
-                    result = divisionArray.divide(numOne, numTwo);
-                } catch (ArithmeticException ae) {
-                    System.out.println("Invalid input 2nd input cant be zero");
-                    break;
-                }
-                try {
-                    divisionArray.addToArray(result);
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("Array Maximum Capacity Reached");
-                    divisionArray.printArray();
-                    break;
-                }
-            } catch (IllegalArgumentException e) {
-                System.out.println("Incorrect Input");
+                result = divisionArray.divide(numOne, numTwo);
+            } catch (ArithmeticException ae) {
+                System.out.println("Invalid input 2nd input cant be zero");
+                break;
+            }
+            try {
+                divisionArray.addToArray(result);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Array Maximum Capacity Reached");
+                divisionArray.printArray();
+                break;
             }
         }
         sc.close();
     }
-    public static void executeQuestion4(){
+
+
+    public static void executeQuestion4() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a file name");
         String fileName = sc.next();
