@@ -1,9 +1,5 @@
 package src.week_two.day_two;
 
-
-import java.util.Arrays;
-import java.util.Collections;
-
 public class DivisionArray {
     int[] arr = new int[5];
     int i = 0;
@@ -18,4 +14,5 @@ public class DivisionArray {
             System.out.println(k);
         }
     }
+
 }

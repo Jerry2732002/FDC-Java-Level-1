@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
-        WeekTwoDayTwoExecutable.executeQuestion4();
+        WeekTwoDayTwoExecutable.executeQuestion3();
     }
 }
 

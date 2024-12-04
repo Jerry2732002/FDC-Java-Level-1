@@ -2,7 +2,7 @@ package src.week_two.day_one.generics.question04;
 
 import java.util.ArrayList;
 
-public class ArrayStorage <T>implements Storage<T>{
+public class ArrayStorage<T> implements Storage<T> {
 
     ArrayList<T> list = new ArrayList<>();
 
@@ -17,7 +17,7 @@ public class ArrayStorage <T>implements Storage<T>{
         return list.get(index);
     }
 
-    public void printList(){
+    public void printList() {
         System.out.println(list);
     }
 }

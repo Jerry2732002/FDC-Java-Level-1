@@ -68,14 +68,14 @@ public class WeekTwoDayOneExecute {
         System.out.println("Array : " + Arrays.asList(arrayOne));
         temp = arrayOne[index1];
         arrayOne[index1] = arrayOne[index2];
-        arrayOne[index2] = arrayOne[index1];
+        arrayOne[index2] = temp;
         System.out.println("After Swap :");
         System.out.println("Array : " + Arrays.asList(arrayOne));
     }
 
     public static void executeQuestion05() {
         Integer[] arrayOne = {1, 2, 3, 4, 5};
-        swap(arrayOne, 1,4);
+        swap(arrayOne, 1, 4);
     }
 
     /// //////////////////EXCEPTION////////////////////////
