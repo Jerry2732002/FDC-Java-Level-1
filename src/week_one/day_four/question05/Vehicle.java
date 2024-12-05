@@ -29,7 +29,7 @@ abstract public class Vehicle {
                 );
     }
 
-    public float achiveableDistance() {
+    public float achievableDistance() {
         return this.fuelAmount * this.mileage;
     }
 

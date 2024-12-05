@@ -13,7 +13,7 @@ public class Carr extends Vehicle {
     @Override
     public void startEngine() {
         System.out.println("Car engine started! " + this.fuelType + " is at " + this.getFuelPercentage() + "%."
-                + " With current amount of fuel, maximum distance achievable is " + this.achiveableDistance() + "Km");
+                + " With current amount of fuel, maximum distance achievable is " + this.achievableDistance() + "Km");
     }
 
     @Override
