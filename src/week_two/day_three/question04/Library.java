@@ -60,12 +60,13 @@ public class Library {
     public void borrowBook(String bookTitle, String userId) {
         Book book = getBook(bookTitle);
         User user = getUser(userId);
+
+        if (user == null) {
+            throw new UserNotFoundException("No user with id:" + userId);
+        }
         if (book == null) {
             displayAllAvailableBook();
             throw new BookNotAvailableException("No book with title :" + bookTitle);
-        }
-        if (user == null) {
-            throw new UserNotFoundException("No user with id:" + userId);
         }
         bookList.remove(book);
         user.borrowBook(book);
