@@ -133,7 +133,7 @@ public class WeekTwoDayThreeExecutable {
             library.borrowBook("Harry Potter", "1001");
             library.borrowBook("Harry Potter", "1002");
             library.returnBook("Game of Thrones", "1001");
-        }catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
     }

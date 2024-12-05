@@ -14,15 +14,19 @@ public class Library {
     public void addBook(Book book) {
         bookList.add(book);
     }
+
     public void addUser(User user) {
         userList.add(user);
     }
+
     public void addBook(List books) {
         bookList.addAll(books);
     }
+
     public void addUser(List users) {
         userList.addAll(users);
     }
+
     public User getUser(String userId) {
         for (User user : userList) {
             if (user.getUserId().equals(userId)) {
@@ -68,12 +72,12 @@ public class Library {
         System.out.println("User : " + user.getUserName() + " has borrowed " + bookTitle);
     }
 
-    public void returnBook(String bookTitle, String userId){
+    public void returnBook(String bookTitle, String userId) {
         User user = getUser(userId);
         if (user == null) {
             throw new UserNotFoundException("No user with id:" + userId);
         }
-        if(!user.checkIfBookBorrowed(bookTitle)){
+        if (!user.checkIfBookBorrowed(bookTitle)) {
             throw new InvalidReturnException("User:" + user.getUserName() + " has not borrowed " + bookTitle);
         }
         bookList.add(user.returnBorrowedBook(bookTitle));
