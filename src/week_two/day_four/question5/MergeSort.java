@@ -23,6 +23,7 @@ public class MergeSort<T> {
 
     public void merge(T[] array, T[] left, T[] right, Comparator<T> comparator) {
         int i = 0, j = 0, k = 0;
+        System.out.println("We are here");
         while (i < left.length && j < right.length) {
             if (comparator.compare(left[i], right[j]) <= 0) {
                 array[k++] = left[i++];
@@ -56,7 +57,7 @@ public class MergeSort<T> {
         merge(array, left, right);
     }
 
-    public void mergeSort(T[] array, Comparator comparator) {
+    public void mergeSort(T[] array, Comparator<T> comparator) {
         if (array.length < 2) {
             return;
         }
@@ -89,12 +90,8 @@ public class MergeSort<T> {
     }
 
     public static void main(String[] args) {
-        String[] arr = {"apple", "banana", "pear", "kiwi"};
-        Collection<String> collection = Arrays.asList(arr);
         Integer[] arr1 = {4, 3, 1, 6, 3, 8, 1, 7, 3, 7,55};
         Collection<Integer> integers = Arrays.asList(arr1);
-        MergeSort<String> mergeSort = new MergeSort<>();
-        System.out.println(mergeSort.sort(collection));
         MergeSort<Integer> integerMergeSort = new MergeSort<>();
         System.out.println(integerMergeSort.sort(integers, (i1, i2) -> i2 - i1));
     }
