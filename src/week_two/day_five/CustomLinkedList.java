@@ -26,13 +26,14 @@ public class CustomLinkedList<T> {
         Node<T> current = this.head;
 
         while (current != null) {
-            copy.insertion(new Node<>(current.value));
+            copy.insertion(current.value);
             current = current.next;
         }
         return copy;
     }
 
-    public void insertion(Node<T> newNode) {
+    public void insertion(T value) {
+        Node<T> newNode = new Node<>(value);
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -42,7 +43,8 @@ public class CustomLinkedList<T> {
         }
     }
 
-    public void insertion(Node<T> newNode, int index) {
+    public void insertion(T value, int index) {
+        Node<T> newNode = new Node<>(value);
         if (index < 0) {
             throw new IndexOutOfBoundsException("Invalid index :" + index);
         }
@@ -315,7 +317,7 @@ public class CustomLinkedList<T> {
         List<T> sol = sorter.sort(array, comparator);
         this.clear();
         for (T item : sol) {
-            this.insertion(new Node<>(item));
+            this.insertion(item);
         }
     }
 
@@ -334,19 +336,17 @@ public class CustomLinkedList<T> {
     }
 
     public static void main(String[] args) {
-        CustomLinkedList<Integer> list1 = new CustomLinkedList<>();
-
-        list1.insertion(new Node<>(5));
-        list1.insertion(new Node<>(2));
-        list1.insertion(new Node<>(1));
-        list1.insertion(new Node<>(6));
-        list1.insertion(new Node<>(-2));
-        list1.insertion(new Node<>(-44));
-        list1.insertion(new Node<>(123));
-        list1.insertion(new Node<>(82));
+        CustomLinkedList<Person> list1 = new CustomLinkedList<>();
+        list1.insertion(new Person("Jerry",(byte)22));
+        list1.insertion(new Person("Thasleena",(byte)23));
+        list1.insertion(new Person("Johns",(byte)22));
+        list1.insertion(new Person("Sam",(byte)26));
+        list1.insertion(new Person("Luffy",(byte)25));
+        list1.insertion(new Person("Zorro",(byte)29));
+        list1.insertion(new Person("Sanji",(byte)31));
 
         list1.printValues();
-        list1.sort(Comparator.naturalOrder());
+        list1.sort(Comparator.comparing(person -> person.age));
         list1.printValues();
     }
 }
