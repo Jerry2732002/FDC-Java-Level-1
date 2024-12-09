@@ -1,6 +1,10 @@
 package src.week_two.day_five;
 
+import src.week_two.day_four.question5.MergeSort;
+
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 public class CustomLinkedList<T> {
 
@@ -21,11 +25,10 @@ public class CustomLinkedList<T> {
         CustomLinkedList<T> copy = new CustomLinkedList<>();
         Node<T> current = this.head;
 
-        while (current.next != null) {
+        while (current != null) {
             copy.insertion(new Node<>(current.value));
             current = current.next;
         }
-        copy.insertion(new Node<>(current.value));
         return copy;
     }
 
@@ -34,11 +37,7 @@ public class CustomLinkedList<T> {
             head = newNode;
             tail = newNode;
         } else {
-            Node<T> current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            tail.next = newNode;
             tail = newNode;
         }
     }
@@ -52,13 +51,8 @@ public class CustomLinkedList<T> {
             tail = newNode;
         } else {
             if (index == 0) {
-                Node<T> current = head;
-                newNode.next = current;
+                newNode.next = head;
                 head = newNode;
-                while (current.next != null) {
-                    current = current.next;
-                }
-                tail = current;
             } else {
                 Node<T> current = head;
                 int currentIndex = 0;
@@ -71,6 +65,9 @@ public class CustomLinkedList<T> {
                 }
                 newNode.next = current.next;
                 current.next = newNode;
+                if (newNode.next == null) {
+                    tail = newNode;
+                }
             }
         }
     }
@@ -79,19 +76,10 @@ public class CustomLinkedList<T> {
         CustomLinkedList<T> copy = list.cloneList();
         if (head == null) {
             head = copy.head;
+            tail = copy.tail;
         } else {
-            Node<T> current = head;
-            int currentIndex = 0;
-            while (current.next != null) {
-                current = current.next;
-                currentIndex++;
-            }
-            Node<T> temp = current.next;
-            Node<T> copyCurrent = copy.head;
-            current.next = copy.head;
-            while (copyCurrent.next != null) {
-                copyCurrent = copyCurrent.next;
-            }
+            tail.next = copy.head;
+            tail = copy.tail;
         }
     }
 
@@ -102,6 +90,7 @@ public class CustomLinkedList<T> {
         }
         if (head == null) {
             head = copy.head;
+            tail = copy.tail;
         } else {
             if (index == 0) {
                 Node<T> copyCurrent = copy.head;
@@ -120,13 +109,15 @@ public class CustomLinkedList<T> {
                         throw new IndexOutOfBoundsException("Invalid index :" + index);
                     }
                 }
-                Node<T> temp = current.next;
                 Node<T> copyCurrent = copy.head;
                 current.next = copy.head;
                 while (copyCurrent.next != null) {
                     copyCurrent = copyCurrent.next;
                 }
-                copyCurrent.next = temp;
+                copyCurrent.next = current.next;
+                if (copyCurrent.next == null) {
+                    tail = copyCurrent;
+                }
             }
         }
     }
@@ -141,6 +132,9 @@ public class CustomLinkedList<T> {
         if (index == 0) {
             Node<T> current = head;
             head = current.next;
+            if (head == null) {
+                tail = null;
+            }
             return current.value;
         } else {
             Node<T> current = head;
@@ -154,6 +148,9 @@ public class CustomLinkedList<T> {
             }
             Node<T> temp = current.next;
             current.next = temp.next;
+            if (current.next == null) {
+                tail = current;
+            }
             return temp.value;
         }
     }
@@ -198,19 +195,21 @@ public class CustomLinkedList<T> {
         if (head == null) {
             throw new IndexOutOfBoundsException("Empty List");
         }
-        //remove all items from the begining portion
         while (head.value.equals(item) && head.next != null) {
             head = head.next;
         }
-        //checks if the head is again item if so then delete and make the list empty
         if (head.value.equals(item)) {
             head = null;
+            tail = null;
             return;
         }
         Node<T> current = head;
         while (current.next != null) {
             if (current.next.value.equals(item)) {
                 current.next = current.next.next;
+                if (current.next == null) {
+                    tail = current;
+                }
             } else {
                 current = current.next;
             }
@@ -250,25 +249,23 @@ public class CustomLinkedList<T> {
 
     public void clear() {
         this.head = null;
+        this.tail = null;
     }
 
     public boolean contains(T item) {
         Node<T> current = head;
-        while (current.next != null) {
+        while (current != null) {
             if (current.value.equals(item)) {
                 return true;
             }
             current = current.next;
-        }
-        if (current.value.equals(item)) {
-            return true;
         }
         return false;
     }
 
     public boolean containsAll(T... items) {
         if (items.length == 0) {
-            throw new IllegalArgumentException("Pass atleast 1 parameter");
+            throw new IllegalArgumentException("Pass at least 1 parameter");
         }
         boolean result = true;
         for (T item : items) {
@@ -281,7 +278,7 @@ public class CustomLinkedList<T> {
 
     public boolean containsAny(T... items) {
         if (items.length == 0) {
-            throw new IllegalArgumentException("Pass atleast 1 parameter");
+            throw new IllegalArgumentException("Pass at least 1 parameter");
         }
         for (T item : items) {
             if (this.contains(item)) {
@@ -291,8 +288,35 @@ public class CustomLinkedList<T> {
         return false;
     }
 
-    public void sort(Comparator<T> compartor) {
+    public int getSize() {
+        int size = 1;
+        Node<T> current = head;
+        while (current.next != null) {
+            size++;
+            current = current.next;
+        }
+        return size;
+    }
 
+    public void sort(Comparator<T> comparator) {
+        CustomMergeSort<T> sorter = new CustomMergeSort<>();
+        int size = getSize();
+
+
+        T[] array = (T[]) new Object[size];
+        int index = 0;
+        Node<T> current = head;
+        while (current.next != null) {
+            array[index++] = current.value;
+            current = current.next;
+        }
+        array[index] = current.value;
+
+        List<T> sol = sorter.sort(array, comparator);
+        this.clear();
+        for (T item : sol) {
+            this.insertion(new Node<>(item));
+        }
     }
 
     public void printValues() {
@@ -312,14 +336,17 @@ public class CustomLinkedList<T> {
     public static void main(String[] args) {
         CustomLinkedList<Integer> list1 = new CustomLinkedList<>();
 
-        list1.insertion(new Node<>(1));
-        list1.insertion(new Node<>(2));
-        list1.insertion(new Node<>(3));
-        list1.insertion(new Node<>(4));
         list1.insertion(new Node<>(5));
+        list1.insertion(new Node<>(2));
+        list1.insertion(new Node<>(1));
         list1.insertion(new Node<>(6));
-        list1.insertion(new Node<>(7));
-        list1.insertion(new Node<>(8));
+        list1.insertion(new Node<>(-2));
+        list1.insertion(new Node<>(-44));
+        list1.insertion(new Node<>(123));
+        list1.insertion(new Node<>(82));
 
+        list1.printValues();
+        list1.sort(Comparator.naturalOrder());
+        list1.printValues();
     }
 }
