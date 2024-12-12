@@ -1,13 +1,12 @@
 package src;
 
-import src.week_three.day_two.*;
-import src.week_three.day_two.question5.Question5;
-import src.week_three.day_two.question6.Question6;
+import src.week_three.day_three.Question1;
+import src.week_three.day_three.Question2;
 
 
 public class Main {
     public static void main(String[] args){
-        Question6.execute();
+        Question2.execute();
     }
 }
 

@@ -194,6 +194,32 @@ public class CustomLinkedList<T> {
         }
     }
 
+    public void deleteAllAfterIndex(int index) {
+        if (index < 0) {
+            throw new IndexOutOfBoundsException("Invalid index:" + index);
+        }
+        if (head == null) {
+            throw new IndexOutOfBoundsException("Empty List");
+        }
+        if (index == 0) {
+            Node<T> current = head;
+            head = null;
+            tail = null;
+        } else {
+            Node<T> current = head;
+            int currentIndex = 0;
+            while (current.next != null && currentIndex < index - 1) {
+                current = current.next;
+                currentIndex++;
+                if (currentIndex < index && current.next == null) {
+                    throw new IndexOutOfBoundsException("Invalid index :" + index);
+                }
+            }
+            current.next = null;
+            tail = current;
+        }
+    }
+
     public void deletion(T item) {
         if (head == null) {
             throw new IndexOutOfBoundsException("Empty List");
@@ -342,8 +368,8 @@ public class CustomLinkedList<T> {
         list1.insertion(-45);
         list1.insertion(-145);
 
-
-        list1.sort(Comparator.naturalOrder());
+        list1.printValues();
+        list1.deleteAllAfterIndex(0);
         list1.printValues();
     }
 }

@@ -1,7 +1,7 @@
 package src.week_three.day_two.question6;
 
 import java.util.Objects;
-import java.util.Scanner;
+
 
 public class Student implements Comparable<Student> {
     private int rollNo;
@@ -9,6 +9,7 @@ public class Student implements Comparable<Student> {
     private final String dob;
     private byte grade;
     private char section;
+    private int userCount;
 
     public Student(String name, String dob) {
         this.name = name;
@@ -27,6 +28,9 @@ public class Student implements Comparable<Student> {
         this.grade = grade;
     }
 
+    public void incrementUserCount(int incrementer) {
+        userCount += incrementer;
+    }
 
     public void printDetails() {
         System.out.println("{" +
@@ -35,6 +39,7 @@ public class Student implements Comparable<Student> {
                 ", dob='" + dob +
                 ", grade=" + grade +
                 ", section=" + section +
+                ", counter=" + userCount +
                 "}\n");
     }
 
@@ -49,23 +54,15 @@ public class Student implements Comparable<Student> {
         if (o == null || this.getClass() != o.getClass()) return false;
         Student that = (Student) o;
         if (name.equalsIgnoreCase(that.name) && dob.equals(that.dob)) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Duplicate student value, do you to forcibly add this student(y/n)");
-            if (scanner.next().charAt(0) == 'y') {
-                return false;
-            }
-            scanner.close();
+            return userCount == ((Student) o).userCount;
         }
         return name.equalsIgnoreCase(that.name) && dob.equals(that.dob);
     }
 
     @Override
     public int compareTo(Student o) {
-        if (name.compareTo(o.name) == 0) {
-            if(dob.compareTo(o.dob) == 0){
-                return 1;
-            }
-            return dob.compareTo(o.dob);
+        if (name.compareTo(o.name) == 0 && dob.compareTo(o.dob) == 0) {
+            return Integer.compare(userCount, o.userCount);
         }
         return name.compareTo(o.name);
     }
