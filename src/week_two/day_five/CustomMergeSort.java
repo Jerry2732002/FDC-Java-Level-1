@@ -1,43 +1,72 @@
 package src.week_two.day_five;
 
 import java.util.*;
+
 public class CustomMergeSort<T> {
-    public void merge(T[] array, T[] left, T[] right, Comparator<T> comparator) {
-        int i = 0, j = 0, k = 0;
-        while (i < left.length && j < right.length) {
-            if (comparator.compare(left[i], right[j]) <= 0) {
-                array[k++] = left[i++];
+
+    public void merge(CustomLinkedList<T> list, CustomLinkedList<T> left, CustomLinkedList<T> right, Comparator<T> comparator) {
+        CustomLinkedList.Node<T> leftCurrent = left.head;
+        CustomLinkedList.Node<T> rightCurrent = right.head;
+
+        if (comparator.compare(leftCurrent.value, rightCurrent.value) <= 0) {
+            list.head = leftCurrent;
+            leftCurrent = leftCurrent.next;
+        } else {
+            list.head = rightCurrent;
+            rightCurrent = rightCurrent.next;
+        }
+
+        CustomLinkedList.Node<T> listCurrent = list.head;
+
+        while (leftCurrent != null && rightCurrent != null) {
+            if (comparator.compare(leftCurrent.value, rightCurrent.value) <= 0) {
+                listCurrent.next = leftCurrent;
+                listCurrent = listCurrent.next;
+                leftCurrent = leftCurrent.next;
             } else {
-                array[k++] = right[j++];
+                listCurrent.next = rightCurrent;
+                listCurrent = listCurrent.next;
+                rightCurrent = rightCurrent.next;
             }
         }
 
-        while (i < left.length) {
-            array[k++] = left[i++];
+        if (leftCurrent != null) {
+            listCurrent.next = leftCurrent;
         }
-        while (j < right.length) {
-            array[k++] = right[j++];
+        if (rightCurrent != null) {
+            listCurrent.next = rightCurrent;
         }
     }
 
-    public void mergeSort(T[] array, Comparator<T> comparator) {
-        if (array.length < 2) {
+    public void mergeSort(CustomLinkedList<T> list, Comparator<T> comparator) {
+        if (list.getSize() < 2) {
             return;
         }
-        int midIndex = array.length / 2;
-        T[] left = (T[]) new Object[midIndex];
-        T[] right = (T[]) new Object[array.length - midIndex];
-        System.arraycopy(array, 0, left, 0, midIndex);
-        System.arraycopy(array, midIndex, right, 0, array.length - midIndex);
+        CustomLinkedList<T> left = new CustomLinkedList<>();
+        CustomLinkedList<T> right = new CustomLinkedList<>();
+        int midIndex = list.getSize() / 2;
+
+        CustomLinkedList.Node<T> current = list.head;
+        int currentIndex = 0;
+
+        while (currentIndex < midIndex) {
+            left.insertion(current.value);
+            current = current.next;
+            currentIndex++;
+        }
+
+        while (current != null) {
+            right.insertion(current.value);
+            current = current.next;
+        }
 
         mergeSort(left, comparator);
         mergeSort(right, comparator);
 
-        merge(array, left, right, comparator);
+        merge(list, left, right, comparator);
     }
 
-    public List<T> sort(T[] array, Comparator<T> comparator) {
-        mergeSort(array, comparator);
-        return Arrays.asList(array);
+    public void sort(CustomLinkedList<T> list, Comparator<T> comparator) {
+        mergeSort(list, comparator);
     }
 }

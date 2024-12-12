@@ -1,16 +1,13 @@
 package src.week_two.day_five;
 
-import src.week_two.day_four.question5.MergeSort;
-
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class CustomLinkedList<T> {
 
-    private static class Node<T> {
-        private T value;
-        private Node<T> next;
+    static class Node<T> {
+        public T value;
+        public Node<T> next;
 
         public Node(T value) {
             this.value = value;
@@ -18,10 +15,10 @@ public class CustomLinkedList<T> {
         }
     }
 
-    private Node<T> head;
-    private Node<T> tail;
+    Node<T> head = null;
+    Node<T> tail = null;
 
-    private CustomLinkedList<T> cloneList() {
+     CustomLinkedList<T> cloneList() {
         CustomLinkedList<T> copy = new CustomLinkedList<>();
         Node<T> current = this.head;
 
@@ -122,6 +119,10 @@ public class CustomLinkedList<T> {
                 }
             }
         }
+    }
+
+    public void deleteFromBeginning() {
+         head = head.next;
     }
 
     public T deletion(int index) {
@@ -291,9 +292,9 @@ public class CustomLinkedList<T> {
     }
 
     public int getSize() {
-        int size = 1;
+        int size = 0;
         Node<T> current = head;
-        while (current.next != null) {
+        while (current != null) {
             size++;
             current = current.next;
         }
@@ -301,24 +302,19 @@ public class CustomLinkedList<T> {
     }
 
     public void sort(Comparator<T> comparator) {
+         if (head == null) {
+             return;
+         }
         CustomMergeSort<T> sorter = new CustomMergeSort<>();
-        int size = getSize();
+        sorter.sort(this, comparator);
+    }
 
+    public T getLastItem() {
+         return tail.value;
+    }
 
-        T[] array = (T[]) new Object[size];
-        int index = 0;
-        Node<T> current = head;
-        while (current.next != null) {
-            array[index++] = current.value;
-            current = current.next;
-        }
-        array[index] = current.value;
-
-        List<T> sol = sorter.sort(array, comparator);
-        this.clear();
-        for (T item : sol) {
-            this.insertion(item);
-        }
+    public T getFirstItem() {
+        return head.value;
     }
 
     public void printValues() {
@@ -336,17 +332,18 @@ public class CustomLinkedList<T> {
     }
 
     public static void main(String[] args) {
-        CustomLinkedList<Person> list1 = new CustomLinkedList<>();
-        list1.insertion(new Person("Jerry",(byte)22));
-        list1.insertion(new Person("Thasleena",(byte)23));
-        list1.insertion(new Person("Johns",(byte)22));
-        list1.insertion(new Person("Sam",(byte)26));
-        list1.insertion(new Person("Luffy",(byte)25));
-        list1.insertion(new Person("Zorro",(byte)29));
-        list1.insertion(new Person("Sanji",(byte)31));
+        CustomLinkedList<Integer> list1 = new CustomLinkedList<>();
+        list1.insertion(6);
+        list1.insertion(2);
+        list1.insertion(1);
+        list1.insertion(9);
+        list1.insertion(-2);
+        list1.insertion(45);
+        list1.insertion(-45);
+        list1.insertion(-145);
 
-        list1.printValues();
-        list1.sort(Comparator.comparing(person -> person.age));
+
+        list1.sort(Comparator.naturalOrder());
         list1.printValues();
     }
 }
